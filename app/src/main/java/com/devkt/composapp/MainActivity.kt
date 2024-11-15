@@ -48,12 +48,15 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun CheckCheckBox(modifier: Modifier = Modifier){
+fun CheckCheckBox(modifier: Modifier = Modifier) {
     var checkedBlue by remember { mutableStateOf(true) }
     var checkedRed by remember { mutableStateOf(true) }
     var checkedGreen by remember { mutableStateOf(true) }
     Column {
-        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 60.dp, start = 16.dp)) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(top = 60.dp, start = 16.dp)
+        ) {
             Checkbox(
                 checked = checkedBlue,
                 onCheckedChange = { checkedBlue = it }
@@ -63,7 +66,10 @@ fun CheckCheckBox(modifier: Modifier = Modifier){
                 modifier = Modifier.padding(start = 16.dp)
             )
         }
-        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(start = 16.dp)) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(start = 16.dp)
+        ) {
             Checkbox(
                 checked = checkedRed,
                 onCheckedChange = { checkedRed = it }
@@ -73,7 +79,10 @@ fun CheckCheckBox(modifier: Modifier = Modifier){
                 modifier = Modifier.padding(start = 16.dp)
             )
         }
-        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(start = 16.dp)) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(start = 16.dp)
+        ) {
             Checkbox(
                 checked = checkedGreen,
                 onCheckedChange = { checkedGreen = it }
@@ -84,18 +93,42 @@ fun CheckCheckBox(modifier: Modifier = Modifier){
             )
         }
         Box {
-            if (checkedBlue) RectangleShape(shape = RectangleShape, width = 300, height = 600, color = Color.Blue, value = 0)
-            if (checkedRed) RectangleShape(shape = RectangleShape, width = 200, height = 400, color = Color.Red, value = 50)
-            if (checkedGreen) RectangleShape(shape = RectangleShape, width = 100, height = 200, color = Color.Green, value = 50)
+            if (checkedBlue) RectangleShape(
+                shape = RectangleShape,
+                width = 300,
+                height = 600,
+                color = Color.Blue,
+                value = 0
+            )
+            if (checkedRed) RectangleShape(
+                shape = RectangleShape,
+                width = 200,
+                height = 400,
+                color = Color.Red,
+                value = 50
+            )
+            if (checkedGreen) RectangleShape(
+                shape = RectangleShape,
+                width = 100,
+                height = 200,
+                color = Color.Green,
+                value = 50
+            )
         }
     }
 }
 
 @Composable
-fun RectangleShape(shape: Shape,width: Int,height: Int,color: Color,value: Int){
-    Column(modifier = Modifier.fillMaxSize().wrapContentSize(Alignment.Center)) {
+fun RectangleShape(shape: Shape, width: Int, height: Int, color: Color, value: Int) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .wrapContentSize(Alignment.Center)) {
         Box(
-            modifier = Modifier.size(width.dp, height.dp).clip(shape).background(color).padding(top = value.dp)
+            modifier = Modifier
+                .size(width.dp, height.dp)
+                .clip(shape)
+                .background(color)
+                .padding(top = value.dp)
         )
     }
 }
